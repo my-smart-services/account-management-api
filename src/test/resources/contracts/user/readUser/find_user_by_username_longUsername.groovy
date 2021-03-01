@@ -1,11 +1,10 @@
-package contracts.user.get
+package contracts.user.readUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Find user with to long input"
     description """
-    Represents the search for an existing user by his name:
+    Represents the search for an user with a name longer than 32:
 
     '''
     given:
@@ -28,7 +27,7 @@ Contract.make {
             contentType applicationJson()
         }
         body(
-                username: "size must be between 2 and 32"
+                "readUser.username": "size must be between 2 and 32"
         )
     }
 }

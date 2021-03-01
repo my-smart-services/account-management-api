@@ -33,7 +33,7 @@ public class UserController {
     private final ObjectMapper objectMapper;
 
     @GetMapping("/{username}")
-    public UserDTO readUser(@NotEmpty @Size(min = 2, max = 64) @PathVariable String username) {
+    public UserDTO readUser(@PathVariable @NotEmpty @Size(min = 2, max = 32) String username) {
         return userService.findUser(username)
                 .map(this::convert)
                 .orElseThrow(new NoSuchElementFoundException("No user with username " + username + " found!"));
@@ -55,7 +55,7 @@ public class UserController {
 
     @PutMapping("/{username}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public UserDTO updateUser(@NotEmpty @Size(min = 3, max = 64) @PathVariable String username, @Valid @RequestBody UserDTO userDTO) {
+    public UserDTO updateUser(@PathVariable @NotEmpty @Size(min = 2, max = 32) String username, @Valid @RequestBody UserDTO userDTO) {
         if (!username.equals(userDTO.getUsername())) {
             throw new BadRequestException("Username from Body didnt match resource username!");
         }
@@ -66,7 +66,7 @@ public class UserController {
 
     @DeleteMapping("/{username}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public UserDTO deleteUser(@NotEmpty @Size(min = 3, max = 64) @PathVariable String username) {
+    public UserDTO deleteUser(@NotEmpty @Size(min = 2, max = 32) @PathVariable String username) {
         User user = userService.deleteUser(username);
         return convert(user);
     }

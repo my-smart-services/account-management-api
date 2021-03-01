@@ -1,11 +1,10 @@
-package contracts.user.post
+package contracts.user.createUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Create user with to short entries"
     description """
-    Represents the following error case meanwhile a user registration:
+    Represents the following error case meanwhile a user registration with to short values:
 
     '''
     given:

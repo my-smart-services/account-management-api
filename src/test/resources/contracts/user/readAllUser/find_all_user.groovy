@@ -1,17 +1,16 @@
-package contracts.user.get
+package contracts.user.readAllUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Find all user"
     description """
-    Represents the search for an existing user by his name:
+    Represents the search for all users
 
     '''
     given:
-        short username
+        existing users
     when:
-        search user by username
+        search for all users
     then:
         all user
     '''
@@ -23,38 +22,37 @@ Contract.make {
     }
 
     response {
-        status BAD_REQUEST()
+        status OK()
         headers {
             contentType applicationJson()
         }
-        body(
+        body
+        [
                 [
-
-                        [
-                                username : "MaxMust",
-                                email    : "max.mustermann@example.org",
-                                firstname: "Max",
-                                lastname : "Mustermann"
-                        ],
-                        [
-                                username : "MaxMusthaus",
-                                email    : "max.musterhaus@example.org",
-                                firstname: "Maxi",
-                                lastname : "Musterhaus",
-                        ],
-                        [
-                                username : "Max",
-                                email    : "max.muster@example.org",
-                                firstname: "Maxi",
-                                lastname : "Musterhaus"
-                        ],
-                        [
-                                username : "Max02",
-                                email    : any(),
-                                firstname: any(),
-                                lastname : "Musterhaus"
-                        ]
+                        username : "MaxMust",
+                        email    : "max.mustermann@example.org",
+                        firstname: "Max",
+                        lastname : "Mustermann"
+                ],
+                [
+                        username : "MaxMusthaus",
+                        email    : "max.musterhaus@example.org",
+                        firstname: "Maxi",
+                        lastname : "Musterhaus",
+                ],
+                [
+                        username : "Max",
+                        email    : "max.muster@example.org",
+                        firstname: "Maxi",
+                        lastname : "Musterhaus"
+                ],
+                [
+                        username : "Max02",
+                        email    : any(),
+                        firstname: any(),
+                        lastname : "Musterhaus"
                 ]
-        )
+        ]
+
     }
 }

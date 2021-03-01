@@ -1,11 +1,10 @@
-package contracts.user.get
+package contracts.user.readUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Find user with to short input"
     description """
-    Represents the search for an existing user by his name:
+    Represents the search for an user by a name shorter than 2:
 
     '''
     given:

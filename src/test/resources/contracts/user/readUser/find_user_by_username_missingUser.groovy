@@ -1,11 +1,10 @@
-package contracts.user.get
+package contracts.user.readUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Find no user by username"
     description """
-    Represents the search for an existing user by his name:
+    Represents the search for an non existing user by his name:
 
     '''
     given:

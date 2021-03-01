@@ -1,9 +1,8 @@
-package contracts.user.post
+package contracts.user.createUser
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name "Create new user"
     description """
     Represents the creation of an new user.
 
@@ -18,6 +17,7 @@ Contract.make {
     """
 
     request {
+
         url "/api/user"
         method POST()
         headers {
@@ -36,11 +36,6 @@ Contract.make {
         headers {
             contentType applicationJson()
         }
-        body (
-                username: "NewUser",
-                email: "NewUser@example.org",
-                firstname: "New",
-                lastname: "User"
-        )
+        body (request.body)
     }
 }
