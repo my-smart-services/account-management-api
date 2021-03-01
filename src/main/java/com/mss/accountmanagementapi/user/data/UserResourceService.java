@@ -8,7 +8,6 @@ import com.mss.accountmanagementapi.error.UnsupportedElementOperationException;
 import com.mss.accountmanagementapi.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

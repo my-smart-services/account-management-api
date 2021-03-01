@@ -1,10 +1,8 @@
 package com.mss.accountmanagementapi.user.data;
 
-import com.mss.accountmanagementapi.user.User;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowableOfType;
 
 class UserEntityTest {
 

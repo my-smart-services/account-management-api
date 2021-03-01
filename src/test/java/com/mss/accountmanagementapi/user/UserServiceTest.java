@@ -2,7 +2,6 @@ package com.mss.accountmanagementapi.user;
 
 import com.mss.accountmanagementapi.error.BadRequestException;
 import com.mss.accountmanagementapi.user.data.UserResourceService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,7 +15,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowableOfType;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
@@ -69,7 +67,7 @@ class UserServiceTest {
         // arrange
         User user = new User(1L, "MaxMust", "Max", "Mustermann", "max.mustermann@example.com");
 
-        when(userResourceService.findByUsername(eq("MaxMust"))).thenReturn(Optional.ofNullable(user));
+        when(userResourceService.findByUsername(eq("MaxMust"))).thenReturn(Optional.of(user));
 
         // act
         Optional<User> optionalUser = userService.findUser("MaxMust");
