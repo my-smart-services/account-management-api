@@ -3,6 +3,7 @@ package contracts.user.createUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(3)
     description """
     Represents the creation of an new user.
 
@@ -24,10 +25,8 @@ Contract.make {
             contentType applicationJson()
         }
         body (
-                username: anyNonBlankString(),//regex('\\b\\w{2,32}\\b'),
-                email: anyEmail(),
-                firstname: anyNonBlankString(),//optional(regex('\\b\\w{2,32}\\b')),
-                lastname: anyNonBlankString()//optional(regex('\\b\\w{2,32}\\b'))
+                username: regex('\\w{2,32}'),
+                email: anyEmail()
         )
     }
 

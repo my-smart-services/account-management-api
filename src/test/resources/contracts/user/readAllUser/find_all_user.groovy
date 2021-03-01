@@ -3,6 +3,7 @@ package contracts.user.readAllUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(1)
     description """
     Represents the search for all users
 

@@ -3,6 +3,7 @@ package contracts.user.readUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the search for an non existing user by his name:
 

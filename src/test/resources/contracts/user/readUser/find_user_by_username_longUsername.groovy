@@ -3,6 +3,7 @@ package contracts.user.readUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the search for an user with a name longer than 32:
 
@@ -17,7 +18,7 @@ Contract.make {
     """
 
     request {
-        url "/api/user/123456789012345678901234567890123"
+        url regex('/api/user/\\w{33}')
         method GET()
     }
 

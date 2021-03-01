@@ -3,6 +3,7 @@ package contracts.user.createUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the following error case meanwhile a user registration by null values:
 

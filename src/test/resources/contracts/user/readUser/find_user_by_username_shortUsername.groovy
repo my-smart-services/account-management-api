@@ -3,6 +3,7 @@ package contracts.user.readUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the search for an user by a name shorter than 2:
 
@@ -17,7 +18,7 @@ Contract.make {
     """
 
     request {
-        url "/api/user/1"
+        url regex('/api/user/\\w{1,1}')
         method GET()
     }
 

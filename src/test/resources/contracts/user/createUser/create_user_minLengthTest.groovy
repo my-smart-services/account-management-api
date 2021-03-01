@@ -3,6 +3,7 @@ package contracts.user.createUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the following error case meanwhile a user registration with to short values:
 
@@ -23,10 +24,10 @@ Contract.make {
             contentType applicationJson()
         }
         body (
-                username: "1",
-                email: "notInTest@example.org",
-                firstname: "1",
-                lastname: "1"
+                username: regex('\\w{1,1}'),
+                email: anyEmail(),
+                firstname: regex('\\w{1,1}'),
+                lastname: regex('\\w{1,1}')
         )
     }
 

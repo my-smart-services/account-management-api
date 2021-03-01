@@ -3,6 +3,7 @@ package contracts.user.createUser
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    priority(2)
     description """
     Represents the following error case meanwhile a user registration with blank values:
 
@@ -38,7 +39,8 @@ Contract.make {
         body(
                 firstname: "size must be between 2 and 32",
                 email: "must not be blank",
-                username: anyNonBlankString(),
+                // TODO: Improve validation handling message
+                username: anyOf("must not be blank", "size must be between 2 and 32"),
                 lastname: "size must be between 2 and 32"
         )
     }
