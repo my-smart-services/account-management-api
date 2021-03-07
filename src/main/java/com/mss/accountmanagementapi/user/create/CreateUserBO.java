@@ -1,59 +1,48 @@
-package com.mss.accountmanagementapi.user.data;
-
-
+package com.mss.accountmanagementapi.user.create;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-/**
- * Repository to do central data operations.
- * Since JPA expects only one entity and one repository for each entity, its not recommended to implement more than a repo type per entity.
- * It may causes side effects meanwhile parallelized workload.
- */
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-public class UserEntity {
+public class CreateUserBO {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true, nullable = false)
+    // system information's
+    @NonNull
     private String username;
 
+    // Personal information's
     private String firstname;
     private String lastname;
 
-    @Column(unique = true, nullable = false)
+    @NonNull
     private String email;
 
     //****************************************************************************************************************//
     // Contracts
     //****************************************************************************************************************//
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserEntity)) return false;
-        UserEntity that = (UserEntity) o;
-        return Objects.equals(getId(), that.getId());
+        if (!(o instanceof CreateUserBO)) return false;
+        CreateUserBO createUserBO = (CreateUserBO) o;
+        return Objects.equals(getUsername(), createUserBO.getUsername());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getUsername());
     }
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "CreateUserBO{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +

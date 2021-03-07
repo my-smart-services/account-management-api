@@ -1,3 +1,3 @@
 spring:
   web:
-    locale: de_DE
+    locale: en_EN

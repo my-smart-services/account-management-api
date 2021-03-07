@@ -1,4 +1,4 @@
-package com.mss.accountmanagementapi.error;
+package com.mss.accountmanagementapi.common.error;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -6,10 +6,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.function.Supplier;
 
-public class NoSuchElementFoundException extends ResponseStatusException implements Supplier<RuntimeException> {
+public class BadRequestException extends ResponseStatusException implements Supplier<RuntimeException> {
 
-    public NoSuchElementFoundException(String message) {
-        super(HttpStatus.NOT_FOUND, message);
+    public BadRequestException(String message) {
+        super(HttpStatus.BAD_REQUEST, message);
     }
 
     @Override

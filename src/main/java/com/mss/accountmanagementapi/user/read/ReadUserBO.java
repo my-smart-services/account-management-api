@@ -1,4 +1,4 @@
-package com.mss.accountmanagementapi.user;
+package com.mss.accountmanagementapi.user.read;
 
 import lombok.*;
 
@@ -9,18 +9,11 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-public class User {
+public class ReadUserBO {
 
-    private Long id;
-    // system information's
-    @NonNull
     private String username;
-
-    // Personal information's
     private String firstname;
     private String lastname;
-
-    @NonNull
     private String email;
 
     //****************************************************************************************************************//
@@ -30,8 +23,8 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
+        if (!(o instanceof ReadUserBO)) return false;
+        ReadUserBO user = (ReadUserBO) o;
         return Objects.equals(getUsername(), user.getUsername());
     }
 
@@ -42,9 +35,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+        return "ReadUserBO{" +
+                "username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +

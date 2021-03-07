@@ -1,4 +1,4 @@
-package com.mss.accountmanagementapi.error;
+package com.mss.accountmanagementapi.common.error;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -6,10 +6,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.function.Supplier;
 
-public class ElementAlreadyPresentException extends ResponseStatusException implements Supplier<RuntimeException> {
+public class UnsupportedElementOperationException extends ResponseStatusException implements Supplier<RuntimeException> {
 
-    public ElementAlreadyPresentException(String message) {
-        super(HttpStatus.UNPROCESSABLE_ENTITY, message);
+    public UnsupportedElementOperationException(String message) {
+        super(HttpStatus.NOT_EXTENDED, message);
     }
 
     @Override

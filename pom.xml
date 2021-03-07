@@ -82,8 +82,9 @@
                 <extensions>true</extensions>
                 <configuration>
                     <baseClassForTests>
-                        com.mss.accountmanagementapi.user.UserControllerStubTest
+                        com.mss.accountmanagementapi.ControllerStubTest
                     </baseClassForTests>
+                    <testFramework>JUNIT5</testFramework>
                 </configuration>
             </plugin>
             <plugin>

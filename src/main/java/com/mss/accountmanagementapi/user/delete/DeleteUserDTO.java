@@ -1,10 +1,7 @@
-package com.mss.accountmanagementapi.user;
+package com.mss.accountmanagementapi.user.delete;
 
 import lombok.*;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Getter
@@ -12,22 +9,11 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-public class UserDTO {
+public class DeleteUserDTO {
 
-    // system information's
-    @NotBlank
-    @Size(min=2, max=32)
     private String username;
-
-    // Personal information's
-    @Size(min=2,max=32)
     private String firstname;
-
-    @Size(min=2,max=32)
     private String lastname;
-
-    @NotBlank
-    @Email
     private String email;
 
     //****************************************************************************************************************//
@@ -38,12 +24,12 @@ public class UserDTO {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserDTO)) return false;
-        UserDTO userDTO = (UserDTO) o;
-        return Objects.equals(getUsername(), userDTO.getUsername())
-                && Objects.equals(getFirstname(), userDTO.getFirstname())
-                && Objects.equals(getLastname(), userDTO.getLastname())
-                && Objects.equals(getEmail(), userDTO.getEmail());
+        if (!(o instanceof DeleteUserDTO)) return false;
+        DeleteUserDTO createUserDTO = (DeleteUserDTO) o;
+        return Objects.equals(getUsername(), createUserDTO.getUsername())
+                && Objects.equals(getFirstname(), createUserDTO.getFirstname())
+                && Objects.equals(getLastname(), createUserDTO.getLastname())
+                && Objects.equals(getEmail(), createUserDTO.getEmail());
     }
 
     @Override
@@ -53,7 +39,7 @@ public class UserDTO {
 
     @Override
     public String toString() {
-        return "UserDTO{" +
+        return "DeleteUserDTO{" +
                 "username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +

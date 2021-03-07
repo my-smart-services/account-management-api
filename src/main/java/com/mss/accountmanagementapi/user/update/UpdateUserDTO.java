@@ -1,37 +1,30 @@
-package com.mss.accountmanagementapi.user.data;
-
-
+package com.mss.accountmanagementapi.user.update;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
-/**
- * Repository to do central data operations.
- * Since JPA expects only one entity and one repository for each entity, its not recommended to implement more than a repo type per entity.
- * It may causes side effects meanwhile parallelized workload.
- */
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-public class UserEntity {
+public class UpdateUserDTO {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = true, nullable = false)
+    @Size(min=2, max=32)
     private String username;
 
+    @Size(min=2,max=32)
     private String firstname;
+
+    @Size(min=2,max=32)
     private String lastname;
 
-    @Column(unique = true, nullable = false)
+    @Email
     private String email;
+
 
     //****************************************************************************************************************//
     // Contracts
@@ -41,21 +34,23 @@ public class UserEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserEntity)) return false;
-        UserEntity that = (UserEntity) o;
-        return Objects.equals(getId(), that.getId());
+        if (!(o instanceof UpdateUserDTO)) return false;
+        UpdateUserDTO userDTO = (UpdateUserDTO) o;
+        return Objects.equals(getUsername(), userDTO.getUsername())
+                && Objects.equals(getFirstname(), userDTO.getFirstname())
+                && Objects.equals(getLastname(), userDTO.getLastname())
+                && Objects.equals(getEmail(), userDTO.getEmail());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getUsername(), getFirstname(), getLastname(), getEmail());
     }
 
     @Override
     public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+        return "UpdateUserDTO{" +
+                "username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
