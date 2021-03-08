@@ -24,10 +24,10 @@ Contract.make {
             contentType applicationJson()
         }
         body (
-                username: regex('\\w{2,32}'),
-                email: anyEmail(),
-                firstname: regex('\\w{2,32}'),
-                lastname: regex('\\w{2,32}')
+                username: regex('(\\w{1,1}|\\w{33})'),
+                email: $(consumer(notMatching(email())), producer(anyNonBlankString())),
+                firstname: regex('(\\w{1,1}|\\w{33})'),
+                lastname: regex('(\\w{1,1}|\\w{33})')
         )
     }
 
