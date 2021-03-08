@@ -1,4 +1,0 @@
-= Account Management API
-:version 7.0:
-:downloads https://github.com/arc42/arc42-template/raw/master/dist/:
-include::src/main/asciidoc/system-documentation.adoc[]

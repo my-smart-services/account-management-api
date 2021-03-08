@@ -1,4 +1,4 @@
-package contracts.user.readAllUser
+package contracts.user.read
 
 import org.springframework.cloud.contract.spec.Contract
 

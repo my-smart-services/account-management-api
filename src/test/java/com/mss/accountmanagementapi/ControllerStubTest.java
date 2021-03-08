@@ -51,12 +51,4 @@ public class ControllerStubTest {
         RestAssuredMockMvc.standaloneSetup(standaloneMockMvcBuilder);
     }
 
-    /*@Test
-    public void indexExample() throws Exception {
-        this.mockMvc.perform(get("/api/customer/MaxMust"))
-                .andExpect(status().isOk())
-                .andDo(document("index-example", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint()), links(linkWithRel("crud").description("The CRUD resource")), responseFields(subsectionWithPath("_links").description("Links to other resources")),
-                        responseHeaders(headerWithName("Content-Type").description("The Content-Type of the payload, e.g. `application/hal+json`"))));
-    }*/
-
 }
