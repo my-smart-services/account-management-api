@@ -1,1 +1,1 @@
-include::src/main/asciidoc/system-documentation.adoc
+include::src/main/asciidoc/system-documentation.adoc[]
