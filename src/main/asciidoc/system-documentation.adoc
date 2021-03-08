@@ -45,51 +45,34 @@ For documentation of your own system you use better the _plain_ version.
 // numbering from here on
 :numbered:
 
+ifdef::env-github,backend-html5[]
+<<src/system/01_introduction_and_goals.adoc#getting-started, SUSE Manager Getting Started>>
+endif::[]
+
+ifndef::env-github,backend-html5[]
 <<<<
-// 1. Introduction and Goals
 include::src/system/01_introduction_and_goals.adoc[]
-
 <<<<
-// 2. Architecture Constraints
 include::src/system/02_architecture_constraints.adoc[]
-
 <<<<
-// 3. System Scope and Context
 include::src/system/03_system_scope_and_context.adoc[]
-
 <<<<
-// 4. Solution Strategy
 include::src/system/04_solution_strategy.adoc[]
-
 <<<<
-// 5. Building Block View
 include::src/system/05_building_block_view.adoc[]
-
 <<<<
-// 6. Runtime View
 include::src/system/06_runtime_view.adoc[]
-
 <<<<
-// 7. Deployment View
 include::src/system/07_deployment_view.adoc[]
-
 <<<<
-// 8. Concepts
 include::src/system/08_concepts.adoc[]
-
 <<<<
-// 9. Design Decisions
 include::src/system/09_design_decisions.adoc[]
-
 <<<<
-// 10. Quality Scenarios
 include::src/system/10_quality_scenarios.adoc[]
-
 <<<<
-// 11. Technical Risks
 include::src/system/11_technical_risks.adoc[]
-
 <<<<
-// 12. Glossary
 include::src/system/12_glossary.adoc[]
+endif::[]
 
